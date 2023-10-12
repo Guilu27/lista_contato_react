@@ -20,16 +20,27 @@ export const FotoContato = styled.img`
   border-radius: 50%;
   margin-bottom: 8px;
 `
+
+export const Infos = styled.div`
+  border-top: 2px solid ${variaveis.azul1};
+`
 export const Nome = styled.h3`
   margin: 8px 0;
   font-size: 20px;
 `
-export const info = styled.p`
+
+export const Info = styled.p`
   margin-top: 8px;
   font-size: 16px;
   color: ${variaveis.cinza};
+
+  width: 100%;
+  max-width: calc(85vw - 32px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
-export const icons = styled.div`
+export const Icons = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
@@ -39,5 +50,6 @@ export const icons = styled.div`
     width: 24px;
     height: 24px;
     margin-left: 16px;
+    cursor: pointer;
   }
 `

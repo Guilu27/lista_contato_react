@@ -10,10 +10,11 @@ const ListaContato = () => (
     </HeaderLista>
 
     <Lista>
-      <CardContato />
-      <CardContato />
-      <CardContato />
-      <CardContato />
+      <CardContato email="x5y9zA@exam1414ple.com" />
+
+      <CardContato email="e9mailaddre1s@exampl4545454ef4asd5f4asd5f4asd5f45e.com" />
+      <CardContato email="user12345678@example.com" />
+      <CardContato email="user12345678@example.com" />
     </Lista>
   </>
 )
