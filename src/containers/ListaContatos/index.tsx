@@ -1,12 +1,13 @@
 import CardContato from '../../components/CardContato'
-import { Lista } from './styles'
+import { Botao } from '../../styles'
+import { HeaderLista, Lista } from './styles'
 
 const ListaContato = () => (
   <>
-    <div>
+    <HeaderLista>
       <h2>3 contatos</h2>
-      <button type="button">Favoritos</button>
-    </div>
+      <Botao>Favoritos</Botao>
+    </HeaderLista>
 
     <Lista>
       <CardContato />

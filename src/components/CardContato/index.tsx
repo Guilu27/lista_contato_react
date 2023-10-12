@@ -1,13 +1,30 @@
+import { useState } from 'react'
+
 import * as S from './styles'
 import RegularStar from '../../assets/star-regular.svg'
 import SolidStar from '../../assets/star-solid.svg'
+import Editar from '../../assets/pen-to-square-solid.svg'
+import Deletar from '../../assets/trash-solid.svg'
 
 const CardContato = () => {
-  const favoritado = true
+  const [favoritado, setFavoritado] = useState(false)
+
+  // Função para alternar o estado de favoritado
+  const alternarFavorito = () => {
+    setFavoritado(!favoritado)
+  }
 
   return (
     <S.CardContent>
-      {favoritado ? <S.icon src={SolidStar} /> : <S.icon src={RegularStar} />}
+      <S.icons>
+        {favoritado ? (
+          <img src={SolidStar} onClick={alternarFavorito} />
+        ) : (
+          <img src={RegularStar} onClick={alternarFavorito} />
+        )}
+        <img src={Editar} />
+        <img src={Deletar} />
+      </S.icons>
 
       <S.FotoContato
         src="https://img.freepik.com/vetores-gratis/paisagem-gradiente-com-portao-torii-na-agua_23-2148660095.jpg"

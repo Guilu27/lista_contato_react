@@ -29,10 +29,15 @@ export const info = styled.p`
   font-size: 16px;
   color: ${variaveis.cinza};
 `
-export const icon = styled.img`
+export const icons = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 32px;
-  cursor: pointer;
+  display: flex;
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+  }
 `
