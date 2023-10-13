@@ -1,15 +1,26 @@
-import BarraPesquisa from './components/BarraPesquisa'
-import ListaContato from './containers/ListaContatos'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import EstiloGlobal, { Container } from './styles'
+import Home from './pages/Home'
+import NovoContato from './pages/NovoContato'
+
+const rotas = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/novocontato',
+    element: <NovoContato />
+  }
+])
 
 function App() {
   return (
     <>
       <EstiloGlobal />
       <Container>
-        <h1>Lista de Contatos</h1>
-        <BarraPesquisa />
-        <ListaContato />
+        <RouterProvider router={rotas} />
       </Container>
     </>
   )

@@ -5,6 +5,7 @@ export const CardContent = styled.div`
   background-color: ${variaveis.azul2};
   padding: 16px;
   position: relative;
+  border-radius: 16px;
 
   box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
     6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
