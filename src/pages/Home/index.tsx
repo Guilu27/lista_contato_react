@@ -1,13 +1,12 @@
-import BarraPesquisa from '../../components/BarraPesquisa'
-import BotaoAdicionar from '../../components/BotaoAdicionar'
 import ListaContato from '../../containers/ListaContatos'
+import { BotaoFixo, Campo, TituloPagina } from '../../styles'
 
 const Home = () => (
   <>
-    <h1>Lista de Contatos</h1>
-    <BarraPesquisa />
+    <TituloPagina>Lista de Contatos</TituloPagina>
+    <Campo type="text" placeholder="Pesquisar pelo nome" />
     <ListaContato />
-    <BotaoAdicionar />
+    <BotaoFixo to="/novocontato">+</BotaoFixo>
   </>
 )
 

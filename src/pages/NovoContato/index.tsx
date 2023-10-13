@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom'
+import Formulario from '../../containers/Formulario'
+import { BotaoFixo } from '../../styles'
 
 const NovoContato = () => (
   <>
-    <Link to="/">clique aqui</Link>
+    <Formulario />
+    <BotaoFixo to="/">&lt;</BotaoFixo>
   </>
 )
 
