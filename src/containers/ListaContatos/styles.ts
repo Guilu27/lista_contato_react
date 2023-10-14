@@ -6,7 +6,7 @@ export const Header = styled.div`
   align-items: center;
 `
 
-export const Itens = styled.div`
+export const Itens = styled.ul`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 16px;

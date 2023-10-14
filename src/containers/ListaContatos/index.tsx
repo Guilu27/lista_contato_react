@@ -1,22 +1,35 @@
+import { useSelector } from 'react-redux'
+
 import CardContato from '../../components/CardContato'
 import { Botao } from '../../styles'
 import { Header, Itens } from './styles'
+import { RootReducer } from '../../store'
 
-const ListaContato = () => (
-  <div>
-    <Header>
-      <h2>3 contatos</h2>
-      <Botao>Favoritos</Botao>
-    </Header>
+const ListaContato = () => {
+  const { itens } = useSelector((state: RootReducer) => state.contato)
 
-    <Itens>
-      <CardContato email="x5y9zA@exam1414ple.com" />
+  return (
+    <div>
+      <Header>
+        <h2>3 contatos</h2>
+        <Botao>Favoritos</Botao>
+      </Header>
 
-      <CardContato email="e9mailaddre1s@exampl4545454ef4asd5f4asd5f4asd5f45e.com" />
-      <CardContato email="user12345678@example.com" />
-      <CardContato email="user12345678@example.com" />
-    </Itens>
-  </div>
-)
-
+      <Itens>
+        {itens.map((c) => (
+          <li key={c.nome}>
+            <CardContato
+              id={c.id}
+              foto={c.foto}
+              nome={c.nome}
+              telefone={c.telefone}
+              email={c.email}
+              favorito={c.favorito}
+            />
+          </li>
+        ))}
+      </Itens>
+    </div>
+  )
+}
 export default ListaContato

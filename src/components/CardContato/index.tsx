@@ -7,12 +7,11 @@ import Editar from '../../assets/pen-to-square-solid.svg'
 import Deletar from '../../assets/trash-solid.svg'
 import Salvar from '../../assets/floppy-disk-solid.svg'
 import Cancelar from '../../assets/ban-solid.svg'
+import ContatoClass from '../../models/Contato'
 
-type Props = {
-  email: string
-}
+type Props = ContatoClass
 
-const CardContato = ({ email }: Props) => {
+const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
   const [favoritado, setFavoritado] = useState(false)
   const [estaEditando, setEstaEditando] = useState(false)
 
@@ -33,7 +32,7 @@ const CardContato = ({ email }: Props) => {
         </S.Icons>
       ) : (
         <S.Icons>
-          {favoritado ? (
+          {favorito ? (
             <img src={SolidStar} onClick={alternarFavorito} />
           ) : (
             <img src={RegularStar} onClick={alternarFavorito} />
@@ -43,13 +42,10 @@ const CardContato = ({ email }: Props) => {
         </S.Icons>
       )}
 
-      <S.FotoContato
-        src="https://img.freepik.com/vetores-gratis/paisagem-gradiente-com-portao-torii-na-agua_23-2148660095.jpg"
-        alt=""
-      />
+      <S.FotoContato src={foto} alt="" />
       <S.Infos>
-        <S.Nome>Nome da Pessoa</S.Nome>
-        <S.Info>Telefone: (48) 99999-9999</S.Info>
+        <S.Nome>{nome}</S.Nome>
+        <S.Info>Telefone: {telefone}</S.Info>
         <S.Info title={email}>Email: {email}</S.Info>
       </S.Infos>
     </S.CardContent>
