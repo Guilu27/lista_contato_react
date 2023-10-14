@@ -4,7 +4,7 @@ import { BotaoFixo } from '../../styles'
 const NovoContato = () => (
   <>
     <Formulario />
-    <BotaoFixo to="/">&lt;</BotaoFixo>
+    <BotaoFixo to="/">X</BotaoFixo>
   </>
 )
 
