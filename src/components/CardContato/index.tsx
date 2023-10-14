@@ -9,7 +9,7 @@ import Deletar from '../../assets/trash-solid.svg'
 import Salvar from '../../assets/floppy-disk-solid.svg'
 import Cancelar from '../../assets/ban-solid.svg'
 import ContatoClass from '../../models/Contato'
-import { remover } from '../../store/reducers/contato'
+import { favoritar, remover } from '../../store/reducers/contato'
 
 type Props = ContatoClass
 
@@ -21,6 +21,15 @@ const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
     setEstaEditando(!estaEditando)
   }
 
+  function favoritarContato() {
+    dispatch(
+      favoritar({
+        id,
+        favoritado: !favorito
+      })
+    )
+  }
+
   return (
     <S.CardContent>
       {estaEditando ? (
@@ -30,7 +39,11 @@ const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
         </S.Icons>
       ) : (
         <S.Icons>
-          {favorito ? <img src={SolidStar} /> : <img src={RegularStar} />}
+          {favorito ? (
+            <img src={SolidStar} onClick={favoritarContato} />
+          ) : (
+            <img src={RegularStar} onClick={favoritarContato} />
+          )}
           <img src={Editar} onClick={editandoCard} />
           <img src={Deletar} onClick={() => dispatch(remover(id))} />
         </S.Icons>

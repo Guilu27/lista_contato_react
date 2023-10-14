@@ -58,9 +58,20 @@ const contatoSlice = createSlice({
       state.itens = state.itens.filter(
         (contato) => contato.id !== action.payload
       )
+    },
+    favoritar: (
+      state,
+      action: PayloadAction<{ id: number; favoritado: boolean }>
+    ) => {
+      const indexContato = state.itens.findIndex(
+        (c) => c.id === action.payload.id
+      )
+      if (indexContato >= 0) {
+        state.itens[indexContato].favorito = action.payload.favoritado
+      }
     }
   }
 })
 
-export const { remover } = contatoSlice.actions
+export const { remover, favoritar } = contatoSlice.actions
 export default contatoSlice.reducer
