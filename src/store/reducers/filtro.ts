@@ -16,11 +16,11 @@ const filtroSlice = createSlice({
     alteraNome: (state, action: PayloadAction<string>) => {
       state.nome = action.payload
     },
-    alteraFiltro: (state, action: PayloadAction<FiltroState>) => {
+    mostrarFavoritos: (state, action: PayloadAction<FiltroState>) => {
       state.todosContatos = action.payload.todosContatos
     }
   }
 })
 
-export const { alteraNome, alteraFiltro } = filtroSlice.actions
+export const { alteraNome, mostrarFavoritos } = filtroSlice.actions
 export default filtroSlice.reducer

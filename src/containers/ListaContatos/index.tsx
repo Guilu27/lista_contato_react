@@ -1,11 +1,13 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import CardContato from '../../components/CardContato'
 import { Botao } from '../../styles'
 import { Header, Itens } from './styles'
 import { RootReducer } from '../../store'
+import { mostrarFavoritos } from '../../store/reducers/filtro'
 
 const ListaContato = () => {
+  const dispatch = useDispatch()
   const { itens } = useSelector((state: RootReducer) => state.contato)
   const { nome, todosContatos } = useSelector(
     (state: RootReducer) => state.filtro
@@ -19,6 +21,11 @@ const ListaContato = () => {
         (itens) =>
           itens.nome.toLocaleLowerCase().search(nome.toLowerCase()) >= 0
       )
+      if (!todosContatos) {
+        contatosFiltrados = contatosFiltrados.filter(
+          (item) => item.favorito === true
+        )
+      }
       return contatosFiltrados
     } else {
       return itens
@@ -27,24 +34,27 @@ const ListaContato = () => {
 
   const contatos = filtrarContatos()
 
+  function mostrarContatosFavoritos() {
+    dispatch(
+      mostrarFavoritos({
+        todosContatos: !todosContatos
+      })
+    )
+  }
+
   return (
     <div>
       <Header>
-        <h2>3 contatos</h2>
-        <Botao>Favoritos</Botao>
+        <h2>{contatos.length} contatos</h2>
+        <Botao onClick={mostrarContatosFavoritos}>
+          {todosContatos ? 'Favoritos' : 'Todos'}
+        </Botao>
       </Header>
 
       <Itens>
         {contatos.map((c) => (
           <li key={c.nome}>
-            <CardContato
-              id={c.id}
-              foto={c.foto}
-              nome={c.nome}
-              telefone={c.telefone}
-              email={c.email}
-              favorito={c.favorito}
-            />
+            <CardContato {...c} />
           </li>
         ))}
       </Itens>
