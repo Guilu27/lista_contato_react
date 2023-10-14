@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
 import RegularStar from '../../assets/star-regular.svg'
@@ -8,16 +9,13 @@ import Deletar from '../../assets/trash-solid.svg'
 import Salvar from '../../assets/floppy-disk-solid.svg'
 import Cancelar from '../../assets/ban-solid.svg'
 import ContatoClass from '../../models/Contato'
+import { remover } from '../../store/reducers/contato'
 
 type Props = ContatoClass
 
 const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
-  const [favoritado, setFavoritado] = useState(false)
+  const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
-
-  const alternarFavorito = () => {
-    setFavoritado(!favoritado)
-  }
 
   const editandoCard = () => {
     setEstaEditando(!estaEditando)
@@ -32,13 +30,9 @@ const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
         </S.Icons>
       ) : (
         <S.Icons>
-          {favorito ? (
-            <img src={SolidStar} onClick={alternarFavorito} />
-          ) : (
-            <img src={RegularStar} onClick={alternarFavorito} />
-          )}
+          {favorito ? <img src={SolidStar} /> : <img src={RegularStar} />}
           <img src={Editar} onClick={editandoCard} />
-          <img src={Deletar} />
+          <img src={Deletar} onClick={() => dispatch(remover(id))} />
         </S.Icons>
       )}
 
