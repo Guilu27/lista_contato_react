@@ -69,9 +69,34 @@ const contatoSlice = createSlice({
       if (indexContato >= 0) {
         state.itens[indexContato].favorito = action.payload.favoritado
       }
+    },
+    cadastrar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
+      const telefoneJaExite = state.itens.find(
+        (contato) =>
+          contato.telefone.toLowerCase() ===
+          action.payload.telefone.toLowerCase()
+      )
+      const emailJaExite = state.itens.find(
+        (contato) =>
+          contato.email.toLowerCase() === action.payload.email.toLowerCase()
+      )
+      if (telefoneJaExite && emailJaExite) {
+        alert('Já existe um contato com esse telefone e e-mail')
+      } else if (emailJaExite) {
+        alert('Já existe um contato com esse e-mail')
+      } else if (telefoneJaExite) {
+        alert('Já existe um contato com esse telefone')
+      } else {
+        const ultimocontato = state.itens[state.itens.length - 1]
+        const novoContato = {
+          ...action.payload,
+          id: ultimocontato ? ultimocontato.id + 1 : 1
+        }
+        state.itens.push(novoContato)
+      }
     }
   }
 })
 
-export const { remover, favoritar } = contatoSlice.actions
+export const { remover, favoritar, cadastrar } = contatoSlice.actions
 export default contatoSlice.reducer

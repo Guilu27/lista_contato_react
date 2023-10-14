@@ -39,11 +39,10 @@ const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
         </S.Icons>
       ) : (
         <S.Icons>
-          {favorito ? (
-            <img src={SolidStar} onClick={favoritarContato} />
-          ) : (
-            <img src={RegularStar} onClick={favoritarContato} />
-          )}
+          <img
+            src={favorito ? SolidStar : RegularStar}
+            onClick={favoritarContato}
+          />
           <img src={Editar} onClick={editandoCard} />
           <img src={Deletar} onClick={() => dispatch(remover(id))} />
         </S.Icons>
