@@ -14,14 +14,6 @@ export const CardContent = styled.div`
     41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
     100px 100px 80px rgba(0, 0, 0, 0.07);
 `
-export const FotoContato = styled.img`
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 8px;
-  border: 5px solid ${variaveis.azul1};
-`
 
 export const Infos = styled.div`
   border-top: 2px solid ${variaveis.azul1};

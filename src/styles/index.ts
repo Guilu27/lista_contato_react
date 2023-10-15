@@ -79,4 +79,13 @@ export const BotaoFixo = styled(Link)`
   text-decoration: none;
 `
 
+export const FotoContato = styled.img`
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  border: 5px solid ${variaveis.azul1};
+`
+
 export default EstiloGlobal

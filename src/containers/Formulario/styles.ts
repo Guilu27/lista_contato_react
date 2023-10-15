@@ -30,3 +30,23 @@ export const CampoForm = styled(Campo)`
   margin-bottom: 16px;
   margin-top: 0;
 `
+export const BotaoUpload = styled.label`
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  border: none;
+  background: transparent;
+  color: ${variaveis.cinza};
+  border: 2px solid ${variaveis.azul3};
+  border-radius: 50px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${variaveis.azul3};
+    color: ${variaveis.branco};
+  }
+`

@@ -10,6 +10,7 @@ import Salvar from '../../assets/floppy-disk-solid.svg'
 import Cancelar from '../../assets/ban-solid.svg'
 import ContatoClass from '../../models/Contato'
 import { favoritar, remover } from '../../store/reducers/contato'
+import { FotoContato } from '../../styles'
 
 type Props = ContatoClass
 
@@ -55,7 +56,7 @@ const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
         </S.Icons>
       )}
 
-      <S.FotoContato
+      <FotoContato
         src={foto}
         alt="Foto do contato"
         onError={imgErroCarregamento}
