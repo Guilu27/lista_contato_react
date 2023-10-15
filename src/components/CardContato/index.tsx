@@ -30,6 +30,13 @@ const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
     )
   }
 
+  const imgErroCarregamento = (e: React.SyntheticEvent) => {
+    e.currentTarget.setAttribute(
+      'src',
+      'https://avatars.githubusercontent.com/u/39436063?s=400&v=4'
+    )
+  }
+
   return (
     <S.CardContent>
       {estaEditando ? (
@@ -48,7 +55,11 @@ const CardContato = ({ id, foto, nome, telefone, email, favorito }: Props) => {
         </S.Icons>
       )}
 
-      <S.FotoContato src={foto} alt="" />
+      <S.FotoContato
+        src={foto}
+        alt="Foto do contato"
+        onError={imgErroCarregamento}
+      />
       <S.Infos>
         <S.Nome>{nome}</S.Nome>
         <S.Info>Telefone: {telefone}</S.Info>

@@ -20,6 +20,7 @@ export const FotoContato = styled.img`
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 8px;
+  border: 5px solid ${variaveis.azul1};
 `
 
 export const Infos = styled.div`
