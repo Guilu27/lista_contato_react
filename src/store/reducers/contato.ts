@@ -94,9 +94,18 @@ const contatoSlice = createSlice({
         }
         state.itens.push(novoContato)
       }
+    },
+    editar: (state, action: PayloadAction<Contato>) => {
+      const indexContato = state.itens.findIndex(
+        (c) => c.id === action.payload.id
+      )
+
+      if (indexContato >= 0) {
+        state.itens[indexContato] = action.payload
+      }
     }
   }
 })
 
-export const { remover, favoritar, cadastrar } = contatoSlice.actions
+export const { remover, favoritar, cadastrar, editar } = contatoSlice.actions
 export default contatoSlice.reducer

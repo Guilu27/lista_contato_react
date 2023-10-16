@@ -1,6 +1,27 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
+const etilosCompartilhadosTextarea = `
+  margin-bottom: 8px;
+  font-size: 20px;
+  resize: none;
+  border: none;
+  background-color: transparent;
+  color: ${variaveis.branco};
+  font-weight: bold;
+  display: flex;
+  width: 100%;
+
+  &:enabled {
+    border: 2px solid ${variaveis.azul3};
+    outline: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px ${variaveis.branco};
+  }
+`
+
 export const CardContent = styled.div`
   background-color: ${variaveis.azul2};
   padding: 16px;
@@ -18,27 +39,51 @@ export const CardContent = styled.div`
 export const Infos = styled.div`
   border-top: 2px solid ${variaveis.azul1};
 `
-export const Nome = styled.h3`
-  margin: 8px 0;
-  font-size: 20px;
+
+export const Nome = styled.div`
+  margin-top: 8px;
+
+  textarea {
+    ${etilosCompartilhadosTextarea}
+    height: 24px;
+  }
 `
 
-export const Info = styled.p`
-  margin-top: 8px;
-  font-size: 16px;
+export const Info = styled.div`
+  margin-top: 16px;
   color: ${variaveis.cinza};
 
-  width: 100%;
-  max-width: calc(85vw - 32px);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  textarea {
+    ${etilosCompartilhadosTextarea}
+    height: 18px;
+    font-size: 16px;
+    color: ${variaveis.cinza};
+  }
 `
+
 export const Icons = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
   display: flex;
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+    cursor: pointer;
+  }
+`
+
+export const ContainerFotoContato = styled.div`
+  position: relative;
+  width: 120px;
+`
+
+export const IconeEdicaoFotoContato = styled.label`
+  position: absolute;
+  bottom: 8px;
+  right: 0;
 
   img {
     width: 24px;
